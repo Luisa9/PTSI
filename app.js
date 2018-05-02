@@ -54,7 +54,7 @@ app.get("/register", function(req, res){
    res.render("register", {page: 'register'}); 
 });
 
-app.get("https://luisa9.github.io/ptsi/site", function(req, res){
+app.get("/luisa9.github.io/ptsi/site", function(req, res){
    res.render("site", {page: 'site'}); 
 });
 
@@ -83,7 +83,7 @@ app.post("/register", function(req, res){
             return res.render("register", {error: err.message});
         }
         passport.authenticate("local")(req, res, function(){
-           res.redirect("https://luisa9.github.io/ptsi/site"); 
+           res.redirect("/luisa9.github.io/ptsi/site"); 
         });
     });
 });
@@ -95,7 +95,7 @@ app.get("/login", function(req, res){
 
 app.post("/login", passport.authenticate("local", 
     {
-        successRedirect: "https://luisa9.github.io/ptsi/site",
+        successRedirect: "/luisa9.github.io/ptsi/site",
         failureRedirect: "/login",
         failureFlash: true,
         successFlash: 'Welcome'
