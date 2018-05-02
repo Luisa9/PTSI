@@ -18,32 +18,7 @@ var cookieParser = require('cookie-parser');
 var session = require("express-session");
 var client = require("twilio");
 
-var http = require('http');
-var fs = require('fs');
 
-var server = http.createServer(function (req, resp) {
-    //3.
-    if (req.url === "/create") {
-        fs.readFile("login.html", function (error, pgResp) {
-            if (error) {
-                resp.writeHead(404);
-                resp.write('Contents you are looking are Not Found');
-            } else {
-                resp.writeHead(200, { 'Content-Type': 'text/html' });
-                resp.write(pgResp);
-            }
-             
-            resp.end();
-        });
-    } else {
-        //4.
-        resp.writeHead(200, { 'Content-Type': 'text/html' });
-        resp.write('<h1>Product Manaager</h1><br /><br />To create product please enter: ' + req.url);
-        resp.end();
-    }
-});
-//5.
-server.listen(5050);
 
 app.configure(function() {
   app.use(express.cookieParser('keyboard cat'));
