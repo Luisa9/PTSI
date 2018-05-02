@@ -19,6 +19,8 @@ var session = require("express-session");
 var client = require("twilio");
 
 
+app.use(express.static(__dirname + "login/public"));
+app.use(app.router);
 
 app.configure(function() {
   app.use(express.cookieParser('keyboard cat'));
