@@ -54,7 +54,9 @@ app.get("/register", function(req, res){
    res.render("register", {page: 'register'}); 
 });
 
-
+app.get("/site", function(req, res){
+   res.render("site", {page: 'site'}); 
+});
 
 app.get("/secret",isLoggedIn, function(req, res){
     res.render("secret");
@@ -82,7 +84,7 @@ app.post("/register", function(req, res){
         }
         passport.authenticate("local")(req, res, function(){
            req.flash("success", "Successfully Signed Up! Nice to meet you " + req.body.username);
-           res.redirect("/home"); 
+           res.redirect("/site"); 
         });
     });
 });
@@ -94,10 +96,10 @@ app.get("/login", function(req, res){
 
 app.post("/login", passport.authenticate("local", 
     {
-        successRedirect: "/home",
+        successRedirect: "/site",
         failureRedirect: "/login",
         failureFlash: true,
-        successFlash: 'Welcome to YelpCamp!'
+        successFlash: 'Welcome'
     }), function(req, res){
                 //res.render("home" , { expressFlash: req.flash('success')}); 
 
