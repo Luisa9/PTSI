@@ -50,12 +50,12 @@ mongoose.connect('mongodb://ed:ed@ds237489.mlab.com:37489/heroku_4jqslj1n');
 var db = mongoose.connection;
 
 // show register form
-app.get("https://luisa9.github.io/ptsi/register", function(req, res){
+app.get("/register", function(req, res){
      req.flash("reg", "register here");
    res.render("register", {page: 'register'}); 
 });
 
-app.get("https://luisa9.github.io/ptsi/site", function(req, res){
+app.get("/site", function(req, res){
    res.render("site", {page: 'site'}); 
 });
 
@@ -94,7 +94,7 @@ app.get("/login", function(req, res){
 });
 
 
-app.post("/login", passport.authenticate("local", 
+app.post("/login.html", passport.authenticate("local", 
     {
         successRedirect: "/site.html",
         failureRedirect: "/login.html",
