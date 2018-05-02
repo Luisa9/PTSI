@@ -66,7 +66,7 @@ app.get("/secret",isLoggedIn, function(req, res){
 
 
 //handling user sign up
-app.post("https://luisa9.github.io/ptsi/register", function(req, res){
+app.post("/register", function(req, res){
     var newUser = new User({
         username: req.body.username,
       
@@ -84,20 +84,20 @@ app.post("https://luisa9.github.io/ptsi/register", function(req, res){
             return res.render("register", {error: err.message});
         }
         passport.authenticate("local")(req, res, function(){
-           res.redirect("https://luisa9.github.io/ptsi/site"); 
+           res.redirect("/site.html"); 
         });
     });
 });
 
-app.get("https://luisa9.github.io/ptsi/login", function(req, res){
+app.get("/login", function(req, res){
    res.render("login", {page: 'login'}); 
 });
 
 
-app.post("https://luisa9.github.io/ptsi/login", passport.authenticate("local", 
+app.post("/login", passport.authenticate("local", 
     {
-        successRedirect: "https://luisa9.github.io/ptsi/site",
-        failureRedirect: "https://luisa9.github.io/ptsi/login",
+        successRedirect: "/site.html",
+        failureRedirect: "/login.html",
         failureFlash: true,
         successFlash: 'Welcome'
     }), function(req, res){
