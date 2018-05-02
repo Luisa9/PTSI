@@ -91,7 +91,8 @@ app.post("https://luisa9.github.io/ptsi/register", function(req, res){
 });
 
 app.get("https://luisa9.github.io/ptsi/login", function(req, res){
-   res.render("https://luisa9.github.io/ptsi/login", {page: 'login'}); 
+  res.sendFile('login.html');
+;
 });
 
 
