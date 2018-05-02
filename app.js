@@ -90,7 +90,7 @@ app.post("https://luisa9.github.io/ptsi/register", function(req, res){
     });
 });
 
-app.get("https://luisa9.github.io/ptsi/login", function(req, res){
+app.get("/login", function(req, res){
   res.sendFile('login.html');
 ;
 });
