@@ -89,12 +89,12 @@ app.post("/register", function(req, res){
     });
 });
 
-app.get("/login", function(req, res){
+app.get("/", function(req, res){
    res.render("login", {page: 'login'}); 
 });
 
 
-app.post("/login.html", passport.authenticate("local", 
+app.post("/login", passport.authenticate("local", 
     {
         successRedirect: "/site.html",
         failureRedirect: "/login.html",
