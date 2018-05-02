@@ -16,7 +16,8 @@ var async = require("async");
 var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var session = require("express-session");
-var client = require("twilio")
+var client = require("twilio");
+var http = require('http');
 
 app.configure(function() {
   app.use(express.cookieParser('keyboard cat'));
