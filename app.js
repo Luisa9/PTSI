@@ -89,12 +89,12 @@ app.post("/register", function(req, res){
     });
 });
 
-app.get("/", function(req, res){
+app.get("https://luisa9.github.io/ptsi/login", function(req, res){
    res.render("login", {page: 'login'}); 
 });
 
 
-app.post("/login", passport.authenticate("local", 
+app.post("https://luisa9.github.io/ptsi/login", passport.authenticate("local", 
     {
         successRedirect: "/site.html",
         failureRedirect: "/login.html",
