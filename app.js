@@ -49,7 +49,7 @@ mongoose.connect('mongodb://ed:ed@ds237489.mlab.com:37489/heroku_4jqslj1n');
 var db = mongoose.connection;
 
 // show register form
-app.get("/register", function(req, res){
+app.get("/luisa9.github.io/ptsi/register", function(req, res){
      req.flash("reg", "register here");
    res.render("register", {page: 'register'}); 
 });
