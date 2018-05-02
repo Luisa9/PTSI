@@ -19,13 +19,11 @@ var session = require("express-session");
 var client = require("twilio");
 var http = require('http');
 
-http.createServer(function(req, res) {  
-  res.writeHead(200, {
-    'Content-Type': 'text/html'
-  });
-  res.write("https://luisa9.github.io/ptsi/login");
-  res.end();
-  
+var server= http.createServer(function(req, res){
+  res.writeHead(200, {'Content-Type': 'login/html'});
+  var myReadStream = fs.createReadStream(_dirname + '/login.html', 'utf8');
+  myReadStream.pipe(res);});
+
 app.configure(function() {
   app.use(express.cookieParser('keyboard cat'));
   app.use(express.session({ cookie: { maxAge: 60000 }}));
