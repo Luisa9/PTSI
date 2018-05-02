@@ -18,11 +18,22 @@ var cookieParser = require('cookie-parser');
 var session = require("express-session");
 var client = require("twilio");
 var http = require('http');
+var fs = require('fs');
 
-var server= http.createServer(function(req, res){
-  res.writeHead(200, {'Content-Type': 'login/html'});
-  var myReadStream = fs.createReadStream(_dirname + '/login.html', 'utf8');
-  myReadStream.pipe(res);});
+function onRequest(request, response) {
+    response.writeHead(200, {'Content-Type': 'site/html'});
+    fs.readFile('./login.html', null, function(error, data) {
+        if (error) {
+            response.writeHead(404);
+            response.write('File not found!');
+        } else {
+            response.write(data);
+        }
+        response.end();
+    });
+}
+
+http.createServer(onRequest).listen(8000);
 
 app.configure(function() {
   app.use(express.cookieParser('keyboard cat'));
