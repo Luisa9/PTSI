@@ -83,7 +83,7 @@ app.post("/register", function(req, res){
             return res.render("register", {error: err.message});
         }
         passport.authenticate("local")(req, res, function(){
-           res.redirect("/luisa9.github.io/ptsi/site"); 
+           res.redirect("/luisa9.github.io/ptsi/login"); 
         });
     });
 });
