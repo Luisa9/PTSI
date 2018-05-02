@@ -1,4 +1,4 @@
-
+<?php
 <link rel="stylesheet" href="css/style.css">
 <div class="wrapper fadeInDown">
   <div id="formContent">
@@ -26,3 +26,4 @@
 
   </div>
 </div>
+?>
