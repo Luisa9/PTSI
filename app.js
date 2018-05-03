@@ -19,8 +19,7 @@ var session = require("express-session");
 var client = require("twilio");
 
 
-app.use(express.static(__dirname + "login/public"));
-app.use(app.router);
+
 
 app.configure(function() {
   app.use(express.cookieParser('keyboard cat'));
@@ -30,20 +29,7 @@ app.configure(function() {
 
 var nodemailer = require("nodemailer");
 
-var http = require("http");
 
-// Create HTTP server and listen on port 8000 for requests
-http.createServer(function(request, response) {
-
-   // Set the response HTTP header with HTTP status and Content type
-   response.writeHead(200, {'Content-Type': 'text/plain'});
-   
-   // Send the response body "Hello World"
-   response.end('Hello World\n');
-}).listen(8000);
-
-// Print URL for accessing server
-console.log('Server running at http://127.0.0.1:8000/');
 
 
 app.use(bodyParser.urlencoded({extended:true}));
